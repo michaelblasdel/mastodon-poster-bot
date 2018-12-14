@@ -1,0 +1,22 @@
+{
+  "name": "mastodon-poster-bot",
+  "version": "0.1.0",
+  "description": "A Mastodon Posting Bot",
+  "main": "application.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/michaelblasdel/mastodon-poster-bot.git"
+  },
+  "author": "Michael Blasdel",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/michaelblasdel/mastodon-poster-bot/issues"
+  },
+  "homepage": "https://github.com/michaelblasdel/mastodon-poster-bot#readme",
+  "dependencies": {
+    "electron": "^3.0.11"
+  }
+}
