@@ -1,5 +1,5 @@
 // Setup Node Requirements
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, Menu } = require('electron');
 
 // Draw Main BrowserWindow
 let win;
@@ -16,6 +16,40 @@ function createWindow () {
     })
 }
 app.on('ready', createWindow);
+
+// Draw About BrowserWindow
+let aboutWin;
+function createAbout () {
+    aboutWin = new BrowserWindow({
+        center: true,
+        autoHideMenuBar: true,
+        minimizable: false,
+        maximizable: false,
+        resizable: false,
+        skipTaskbar: true,
+        width: 500,
+        height: 250
+    });
+    aboutWin.loadFile('about.html');
+
+    //win.webContents.openDevTools()
+
+    // Emitted when the window is closed.
+    aboutWin.on('closed', () => {
+        aboutWin = null;
+    })
+}
+
+// Application Menu
+const appMenu = [
+    {
+        label: 'About',
+        click () {
+            createAbout();
+        }
+    }
+];
+Menu.setApplicationMenu(Menu.buildFromTemplate(appMenu));
 
 // Manage Application States
 app.on('window-all-closed', () => {
